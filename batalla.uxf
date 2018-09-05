@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <help_text/>
+  <zoom_level>6</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>198</x>
+      <y>156</y>
+      <w>132</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>BatallaDeMonstruos
+--
++ BatallaDeMonstruos
+     (String, Elemento, Elemento,
+      String, Elemento, Elemento)
+--
+- jugadorAtacante: Jugador
+- jugadorDefensor: Jugador
+--
++ obtenerAtacante(): Jugador
++ obtenerDefensor(): Jugador
++ termino(): boolean
++ ganador(): Jugador
++ jugada(Ataque)
+- proximoTurno()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>438</x>
+      <y>156</y>
+      <w>132</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Jugador
+--
++ Jugador(String,Monstruo)
+--
+- nombre : String
+- monstruo : Monstruo
+--
++ obtenerNombre(): String
++ obtenerMonstruo(): Monstruo
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>414</x>
+      <y>240</y>
+      <w>180</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Monstruo
+--
++ Monstruo(Elemento, Elemento)
+--
+- estadoVital: float
+- ataquesEspecialesRestantes: int
+- elementos: Elemento[2]
+--
++ obtenerEstadoVital(): float
++ obtenerAtaquesEspecialesRestantes(): int
++ generarOpciones(): Elemento[]
++ generarAtaque(Elemento): Ataque
++ generarAtaqueEspecial(Elemento): Ataque
++ recibirAtaque(Ataque)
+ </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>324</x>
+      <y>204</y>
+      <w>126</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;
+m1=
+m2=2</panel_attributes>
+    <additional_attributes>10.0;10.0;190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>564</x>
+      <y>204</y>
+      <w>108</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;
+m1=
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;160.0;10.0;160.0;70.0;50.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>402</x>
+      <y>372</y>
+      <w>210</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+Elemento
+--
+Agua
+Tierra
+Fuego
+Aire
+--
++ superaEnAtaqueAlElemento(Elemento) : boolean
++ superaEnDefensaAlElemento(Elemento) : boolean
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>174</x>
+      <y>330</y>
+      <w>174</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>Ataque
+--
++ Ataque(Elemento)
+--
+- daño: float
+- elemento: Elemento
+--
++ calcularDaño(): float
+- capacidadDeDaño(Monstruo): float
+- capacidadDeResistencia(Monstruo): float</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>180</x>
+      <y>432</y>
+      <w>162</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>AtaqueEspecial
+--
++ AtaqueEspecial(Elemento)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>252</x>
+      <y>408</y>
+      <w>18</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>342</x>
+      <y>330</y>
+      <w>84</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.&gt;
+m2=*
+m1=*
+
+
+</panel_attributes>
+    <additional_attributes>120.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>258</x>
+      <y>270</y>
+      <w>18</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+m2=*</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+</diagram>
