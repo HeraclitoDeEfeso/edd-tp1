@@ -6,8 +6,8 @@ Trabajo Práctico Nº 1 para la materia Estructuras de Datos de la Universidad N
 
 - Amodey, Leandro. Legajo N° 35868
 - Araneda, Alejandro. Legajo N° 46618
-- Fraccini, Franco. Legajo N°
-- Monti, Matías. Legajo N°
+- Fraccini, Franco. Legajo N° 
+- Monti, Matías. Legajo N° 45924
 
 ## Enunciado
 
