@@ -1,177 +1,43 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<diagram program="umlet" version="14.2">
-  <help_text/>
-  <zoom_level>10</zoom_level>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>220</x>
-      <y>10</y>
-      <w>220</w>
-      <h>190</h>
-    </coordinates>
-    <panel_attributes>Batalla_de_monstruos
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><help_text></help_text><element><id>UMLClass</id><coordinates><x>460</x><y>10</y><w>240</w><h>190</h></coordinates><panel_attributes>Batalla_de_monstruos
 --
 Batalla_de_mounstruos
-     (String, Elemento, Elemento,
-      String, Elemento, Elemento)
+     (str, Elemento, Elemento,
+      str, Elemento, Elemento)
 --
 jugador_atacante: Jugador
 jugador_defensor: Jugador
 --
-termino(): boolean
+termino(): bool
 ganador(): Jugador
-jugada(Ataque)
-proximo_turno()
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>620</x>
-      <y>50</y>
-      <w>220</w>
-      <h>100</h>
-    </coordinates>
-    <panel_attributes>Jugador
+jugada(Ataque): None
+proximo_turno(): None
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>780</x><y>50</y><w>220</w><h>100</h></coordinates><panel_attributes>Jugador
 --
-Jugador(String,Monstruo)
+Jugador(str, Elemento, Elemento)
 --
-nombre : String
+nombre : str
 monstruo : Monstruo
 
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>430</x>
-      <y>90</y>
-      <w>210</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>690</x><y>90</y><w>110</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;
 m1=
-m2=2</panel_attributes>
-    <additional_attributes>10.0;10.0;190.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>830</x>
-      <y>90</y>
-      <w>180</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;
-m1=
-m2=1</panel_attributes>
-    <additional_attributes>10.0;10.0;160.0;10.0;160.0;90.0;70.0;90.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>570</x>
-      <y>370</y>
-      <w>350</w>
-      <h>150</h>
-    </coordinates>
-    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
-Elemento
---
-Agua
-Tierra
-Fuego
-Aire
---
-supera_en_ataque_al_elemento(Elemento) : boolean
-supera_en_defensa_al_elemento(Elemento) : boolean
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>180</x>
-      <y>250</y>
-      <w>290</w>
-      <h>140</h>
-    </coordinates>
-    <panel_attributes>Ataque
+m2=2</panel_attributes><additional_attributes>10;10;90;10</additional_attributes></element><element><id>Relation</id><coordinates><x>990</x><y>90</y><w>110</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;</panel_attributes><additional_attributes>10;10;90;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>460</x><y>270</y><w>240</w><h>140</h></coordinates><panel_attributes>Ataque
 --
 Ataque(Elemento)
 --
-daño: float
+danio: float
 elemento: Elemento
 --
-calcular_daño(): float
-capacidad_de_daño(Monstruo): float
-capacidad_de_resistencia(Monstruo): float</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>190</x>
-      <y>440</y>
-      <w>270</w>
-      <h>50</h>
-    </coordinates>
-    <panel_attributes>AtaqueEspecial
+calcular_danio(): float
+capacidad_de_danio(Monstruo): float
+capacidad_de_resistencia(Monstruo): float</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>460</x><y>480</y><w>240</w><h>50</h></coordinates><panel_attributes>Ataque_especial
 --
-Ataque_especial(Elemento)</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>310</x>
-      <y>380</y>
-      <w>30</w>
-      <h>80</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>460</x>
-      <y>250</y>
-      <w>160</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.&gt;
+Ataque_especial(Elemento)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>570</x><y>400</y><w>30</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>690</x><y>180</y><w>540</w><h>180</h></coordinates><panel_attributes>lt=&lt;.&gt;
 m2=*
 m1=*
 
 
-</panel_attributes>
-    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>310</x>
-      <y>190</y>
-      <w>30</w>
-      <h>80</h>
-    </coordinates>
-    <panel_attributes>lt=.&gt;
-m2=*</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>600</x>
-      <y>170</y>
-      <w>300</w>
-      <h>170</h>
-    </coordinates>
-    <panel_attributes>Monstruo
+</panel_attributes><additional_attributes>520;10;520;150;10;150</additional_attributes></element><element><id>Relation</id><coordinates><x>570</x><y>190</y><w>30</w><h>100</h></coordinates><panel_attributes>lt=.&gt;
+m2=*</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1080</x><y>20</y><w>260</w><h>170</h></coordinates><panel_attributes>Monstruo
 --
 Monstruo(Elemento, Elemento)
 --
@@ -181,20 +47,46 @@ elementos: Elemento[2]
 generar_opciones(): Elemento[]
 generar_ataque(Elemento): Ataque
 generar_ataque_especial(Elemento): Ataque
-recibir_ataque(Ataque)
- </panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>730</x>
-      <y>330</y>
-      <w>30</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes>lt=.&gt;
-m2=*</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
-  </element>
-</diagram>
+recibir_ataque(Ataque): None
+ </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>70</x><y>280</y><w>260</w><h>130</h></coordinates><panel_attributes>Menu
+--
+__titulo__: str
+__opciones__: dict
+--
+Menu(self, titulo: str)
+--
+agregar_opcion(texto: str, valor: object): None
+obtener_eleccion(): object
+__mostrar_menu__(): None</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>190</x><y>200</y><w>30</w><h>100</h></coordinates><panel_attributes>lt=&lt;.
+m1=*
+
+</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>30</x><y>0</y><w>340</w><h>210</h></coordinates><panel_attributes>&lt;&lt;utility&gt;&gt;
+Aplicacion
+--
+___CANTIDAD_DE_JUGADORES__: int_
+___CANTIDAD_DE_ELEMENTOS_POR_JUGADORES__: int_
+--
+_main(): None_
+___crear_batalla__(): Batalla_
+___jugar_partida__(Batalla): None_
+___mostrar_resultado_final__(Batalla): None_
+___mostrar_resultado_parcial__(Batalla): None_
+___menu_de_elementos__(anteriores: Elemento[]): Elemento_
+___menu_de_ataques__(Jugador): Ataque_
+___quedan_ataques_especiales__() : bool_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1110</x><y>380</y><w>210</w><h>150</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
+Elemento
+--
+Agua
+Tierra
+Fuego
+Aire
+--
+supera_en_ataque(Elemento) : bool
+supera_en_defensa(Elemento) : bool
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>690</x><y>340</y><w>540</w><h>60</h></coordinates><panel_attributes>lt=&lt;.
+m1=*
+
+
+</panel_attributes><additional_attributes>520;40;520;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1220</x><y>180</y><w>30</w><h>220</h></coordinates><panel_attributes>lt=&lt;.
+m1=*
+</panel_attributes><additional_attributes>10;200;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>360</x><y>90</y><w>120</w><h>30</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>100;10;10;10</additional_attributes></element></diagram>
