@@ -20,8 +20,14 @@ class TestBatalla(unittest.TestCase):
 
     def test_si_se_crea_una_batalla_el_primer_turno_tiene_ataque_especial(self):
         mi_batalla = Batalla("Natalia", Elemento.AGUA, Elemento.FUEGO, "Pedro", Elemento.AIRE, Elemento.TIERRA)
-        mi_monstruo = mi_batalla.jugador_atacante.monstruo
-        self.assertTrue(Elemento.FUEGO in mi_monstruo.generar_opciones() and mi_monstruo.ataques_especiales_restantes)
+        mi_monstruo = mi_batalla.__jugador_atacante__.__monstruo__
+        self.assertTrue(Elemento.FUEGO in mi_monstruo.generar_opciones() and mi_monstruo.__ataques_especiales_restantes__)
+
+    def test_si_se_crea_una_batalla_con_un_jugador_aire_y_tierra_si_recibe_un_primer_ataque_especial_de_fuego_la_vida_restante_es_82(self):
+        mi_batalla = Batalla("Natalia", Elemento.AGUA, Elemento.FUEGO, "Pedro", Elemento.AIRE, Elemento.TIERRA)
+        mi_ataque = mi_batalla.__jugador_atacante__.__monstruo__.generar_ataque_especial(Elemento.FUEGO)
+        mi_batalla.jugada(mi_ataque)
+        self.assertEqual(82, mi_batalla.__jugador_atacante__.__monstruo__.__estado_vital__)
 
 if __name__=="__main__":
 
@@ -29,13 +35,6 @@ if __name__=="__main__":
 
 """
 public class BatallaTest {
-
-    def test_siSeCreaUnaBatallaConUnJugadorNataliaDeAguaYFuegoYOtroDeAireYTierraDespuesDeAtaqueEspecialDeFuegoLaVidaRestanteEs82():
-        Batalla miBatalla = new Batalla("Natalia", new Agua(), new Fuego(), "Pedro", new Aire(), new Tierra());
-        Ataque miAtaque = miBatalla.obtenerJugadorAtacante().obtenerMonstruo().generarAtaqueEspecial(new Fuego());
-        miBatalla.jugada(miAtaque);
-        assertEquals(82, miBatalla.obtenerJugadorAtacante().obtenerMonstruo().obtenerEstadoVital(), 0.1);
-    }
 
     def test_siSeCreaUnaBatallaConUnJugadorDeAguaYFuegoYOtroPEdroDeAireYTierraSiASuTurnoPedroAtacaConEspecialDeAireAlOtroLeResta85DeVida():
         Batalla miBatalla = new Batalla("Natalia", new Agua(), new Fuego(), "Pedro", new Aire(), new Tierra());
