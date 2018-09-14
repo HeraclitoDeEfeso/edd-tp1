@@ -11,12 +11,17 @@ class TestBatalla(unittest.TestCase):
     def setUp(self):
         pass
 
-    def test_se_puede_crear_una_batalla_con_un_jugador_de_agua_y_fuego_y_otro_de_aire_y_tierra(self):
+    def test_se_puede_crear_una_batalla(self):
         Batalla("Natalia", Elemento.AGUA, Elemento.FUEGO, "Pedro", Elemento.AIRE, Elemento.TIERRA)
 
-    def test_si_se_crea_una_batalla_con_un_jugador_natalia_de_agua_y_fuego_mas_otro_jugador_entonces_inicia_natalia(self):
+    def test_si_se_crea_una_batalla_el_primer_jugador_inicia(self):
         mi_batalla = Batalla("Natalia", Elemento.AGUA, Elemento.FUEGO, "Pedro", Elemento.AIRE, Elemento.TIERRA)
         self.assertEqual("Natalia", mi_batalla.jugador_atacante)
+
+    def test_si_se_crea_una_batalla_el_primer_turno_tiene_ataque_especial(self):
+        mi_batalla = Batalla("Natalia", Elemento.AGUA, Elemento.FUEGO, "Pedro", Elemento.AIRE, Elemento.TIERRA)
+        mi_monstruo = mi_batalla.jugador_atacante.monstruo
+        self.assertTrue(Elemento.FUEGO in mi_monstruo.generar_opciones() and mi_monstruo.ataques_especiales_restantes)
 
 if __name__=="__main__":
 
@@ -24,19 +29,6 @@ if __name__=="__main__":
 
 """
 public class BatallaTest {
-
-    def test_siSeCreaUnaBatallaConUnJugadorNataliaDeAguaYFuegoMasOtroJugadorEnElPrimerTurnoTieneAtaqueEspecialFuego():
-        Batalla miBatalla = new Batalla("Natalia", new Agua(), new Fuego(), "Pedro", new Aire(), new Tierra());
-        Monstruo miMonstruo = miBatalla.obtenerJugadorAtacante().obtenerMonstruo();
-        assertTrue((miMonstruo.generarOpciones(1) instanceof Fuego | miMonstruo.generarOpciones(2) instanceof Fuego)
-                & miMonstruo.cuantosAtaqueEspecialesQuedan() > 0);
-    }
-
-    def test_siSeCreaUnaBatallaConUnJugadorNataliaDeAguaYFuegoMasOtroJugadorGeneraUnAtaqueEspecialDeFuego():
-        Batalla miBatalla = new Batalla("Natalia", new Agua(), new Fuego(), "Pedro", new Aire(), new Tierra());
-        Ataque miAtaque = miBatalla.obtenerJugadorAtacante().obtenerMonstruo().generarAtaqueEspecial(new Fuego());
-        assertNotNull(miAtaque);
-    }
 
     def test_siSeCreaUnaBatallaConUnJugadorNataliaDeAguaYFuegoYOtroDeAireYTierraDespuesDeAtaqueEspecialDeFuegoLaVidaRestanteEs82():
         Batalla miBatalla = new Batalla("Natalia", new Agua(), new Fuego(), "Pedro", new Aire(), new Tierra());
