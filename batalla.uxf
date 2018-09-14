@@ -21,7 +21,7 @@ Batalla_de_mounstruos
 --
 termino(): bool
 ganador(): Jugador
-jugada(Elemento): None
+jugada(Ataque): None
 __proximo_turno__(): None
 </panel_attributes>
     <additional_attributes/>
