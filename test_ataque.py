@@ -10,40 +10,37 @@ class TestAtaque(unittest.TestCase):
 
     def setUp(self):
         pass
-"""
-        Ataque:
-        
-        @Test
-	public void sePuedeCrearUnAtaqueDeAgua() throws ParametroNuloException {
-		new Ataque(new Agua());
-	}
-	
-	@Test
-	public void sePuedeCrearUnAtaqueDeFuego() throws ParametroNuloException {
-		new Ataque(new Fuego());
-	}
 
-	@Test
-	public void sePuedeCrearUnAtaqueDeAire() throws ParametroNuloException {
-		new Ataque(new Aire());
-	}
-	
-	@Test
-	public void sePuedeCrearUnAtaqueDeTierra() throws ParametroNuloException {
-		new Ataque(new Tierra());
-	}
-	
-	@Test(expected=Exception.class)
-	public void noSePuedeCrearUnAtaqueNulo() throws ParametroNuloException {
-		new Ataque(null);
-	}
-	
-	@Test
+    def se_puede_crear_un_ataque_de_cada_elemento(self):
+        a = Ataque(Elemento.Fuego)
+        a = Ataque(Elemento.Agua)
+        a = Ataque(Elemento.Tierra)
+        a = Ataque(Elemento.Aire)
+
+    def no_se_puede_crear_un_ataque_nulo(self):
+        b = Ataque(Elemento.None)
+        assert b is None, 'el ataque debe tener asignado un elemento'
+        
+     """@Test(expected=Exception.class)
+        public void noSePuedeCrearUnAtaqueNulo() throws ParametroNuloException {
+            new Ataque(null);
+        } """
+    def verificar_matriz_de_daño(self):
+        elementos = [ Elemento.Agua , Elemento.Fuego , Elemento.Tierra , Elemento.Aire ]
+        daños_esperados = [[10, 12, 8, 10],[8,10,12,10],[10,10,10,10],[12,8,10,10]]
+        daños_calculados = [[]]
+        for elemento_ataque in range(0, 4):
+            mi_ataque = Ataque(elmentos[elemento_ataque])
+            for elemento_defensa in range(0, 4):
+                daños_calculados[elemento_ataque][elemento_defensa] = miAtaque.calcularDaño(Elemento.elementos[elementoDefensa]);	
+                assert daños_esperados == daños_calculados, 'algun calculo de daño esta fallando'
+"""     @Test
 	public void verificarMatrizDeDaño() throws ParametroNuloException {
 		Elemento[] elementos = {new Agua(), new Fuego(), new Tierra(), new Aire()};
 		float[][] dañosEsperados = {{10, 12, 8, 10},{8,10,12,10},{10,10,10,10},{12,8,10,10}};
 		float[][] dañosCalculados = new float[4][4];
 		for(int elementoAtaque = 0; elementoAtaque < 4; elementoAtaque++) {
+		
 			Ataque miAtaque = new Ataque(elementos[elementoAtaque]);
 			for(int elementoDefensa = 0; elementoDefensa < 4; elementoDefensa++) {
 				dañosCalculados[elementoAtaque] [elementoDefensa]
@@ -51,8 +48,13 @@ class TestAtaque(unittest.TestCase):
 			}
 		}
 		assertTrue(Arrays.deepEquals(dañosEsperados, dañosCalculados));
-	}
-	---------------------------
+	}    """
+
+
+
+
+
+        """---------------------------
 	public class AtaqueEspecialTest {
 	
 
