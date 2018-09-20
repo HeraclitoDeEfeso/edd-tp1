@@ -2,7 +2,7 @@
 """Test unitarios para el módulo ataque."""
 
 import unittest
-from ataque import Ataque
+from ataque import Ataque, Ataque_especial
 from elemento import Elemento
 
 class TestAtaque(unittest.TestCase):
