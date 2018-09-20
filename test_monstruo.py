@@ -9,8 +9,8 @@ from ataque_especial import Ataque_especial
 class TestMonstruo(unittest.TestCase):
 
     def setUp(self):
-    		monster = Monstruo(Elemento.FUEGO,Elemento.AGUA)
-    	pass
+    	monster = Monstruo(Elemento.FUEGO,Elemento.AGUA)
+	pass
 
     def verificando_monstruo_creado(self):
 		self.assertEqual(100.0, monster.__estado_vital__)

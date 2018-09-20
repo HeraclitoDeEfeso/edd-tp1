@@ -10,7 +10,7 @@ class TestJugador(unittest.TestCase):
     def setUp(self):
     	#Se crea un jugador generico para realizar las pruebas
     	player = Jugador("Unnamed",Elemento.AGUA,Elemento.FUEGO)
-        pass
+    pass
 
     def verificando_nombre_unnamed_correctamente(self):
 		self.assertEqual("Unnamed", jugador.__nombre__)
