@@ -1,7 +1,7 @@
 from elemento import Elemento
 """faltan los imports de ataque"""
 
-class Mounstruo():
+class Monstruo():
     """ se deberia controlar los tipos de los parametros ?"""
     def __init__(self, elem_1, elem_2): 
         self.__elementos__[0]= elem_1
