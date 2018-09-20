@@ -24,7 +24,7 @@ class TestAtaque(unittest.TestCase):
             mi_ataque = Ataque(elementos[elemento_ataque])
             for elemento_defensa in range(0, 4):
                 daños_calculados[elemento_ataque][elemento_defensa] = mi_ataque.calcular_danio([elementos[elemento_defensa]])	
-                assert daños_esperados == daños_calculados, 'algun calculo de daño esta fallando'
+        assert daños_esperados == daños_calculados, 'algun calculo de daño esta fallando'
 	
 
     def test_se_puede_crear_un_ataque_especial_de_cada_elemento(self):
@@ -42,7 +42,7 @@ class TestAtaque(unittest.TestCase):
             mi_ataque = Ataque_especial(elementos[elemento_ataque])
             for elemento_defensa in range(0, 4):
                 daños_calculados[elemento_ataque][elemento_defensa] = mi_ataque.calcular_danio([elementos[elemento_defensa]])	
-                assert daños_esperados == daños_calculados, 'algun calculo de daño esta fallando'
+        assert daños_esperados == daños_calculados, 'algun calculo de daño esta fallando'
 
 if __name__=="__main__":
     unittest.main(argv=['first-arg-is-ignored'], verbosity=2, exit=False)
