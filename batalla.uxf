@@ -71,10 +71,10 @@ m2=2</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>440</x>
+      <x>430</x>
       <y>280</y>
-      <w>320</w>
-      <h>140</h>
+      <w>350</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>Ataque
 --
@@ -83,16 +83,17 @@ __elemento__: Elemento
 --
 Ataque(Elemento)
 --
-calcular_danio(Monstruo): float
-__capacidad_de_danio__(Monstruo): float
-__capacidad_de_resistencia__(Monstruo): float</panel_attributes>
+calcular_danio(Elemento[]): float
+__calcular_ventaja__(Elemento[], FunctionType): float
+__ventaja_en_ataque__(Elemento[]): bool
+__desventaja_en_defensa__(Elemento[]): bool</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>480</x>
-      <y>490</y>
+      <y>510</y>
       <w>240</w>
       <h>50</h>
     </coordinates>
@@ -105,7 +106,7 @@ Ataque_especial(Elemento)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>590</x>
-      <y>410</y>
+      <y>430</y>
       <w>30</w>
       <h>100</h>
     </coordinates>
@@ -115,9 +116,9 @@ Ataque_especial(Elemento)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>750</x>
+      <x>770</x>
       <y>190</y>
-      <w>540</w>
+      <w>520</w>
       <h>180</h>
     </coordinates>
     <panel_attributes>lt=&lt;.&gt;
@@ -126,7 +127,7 @@ m1=*
 
 
 </panel_attributes>
-    <additional_attributes>520.0;10.0;520.0;150.0;10.0;150.0</additional_attributes>
+    <additional_attributes>500.0;10.0;500.0;150.0;10.0;150.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -227,27 +228,28 @@ ___quedan_ataques_especiales__() : bool_</panel_attributes>
       <x>1150</x>
       <y>390</y>
       <w>250</w>
-      <h>150</h>
+      <h>180</h>
     </coordinates>
     <panel_attributes>&lt;&lt;enumeration&gt;&gt;
 Elemento
 --
-Agua
-Tierra
-Fuego
-Aire
+AGUA
+TIERRA
+FUEGO
+AIRE
+NADA
 --
-supera_en_ataque(Elemento) : bool
-supera_en_defensa(Elemento) : bool
-</panel_attributes>
+supera_en_ataque(Elemento): bool
+supera_en_defensa(Elemento): bool
+__repr__(): str</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>750</x>
+      <x>770</x>
       <y>350</y>
-      <w>540</w>
+      <w>520</w>
       <h>60</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
@@ -255,7 +257,7 @@ m1=*
 
 
 </panel_attributes>
-    <additional_attributes>520.0;40.0;520.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>500.0;40.0;500.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
