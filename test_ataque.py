@@ -19,11 +19,13 @@ class TestAtaque(unittest.TestCase):
     def test_verificar_matriz_de_daño(self):
         elementos = [ Elemento.AGUA , Elemento.FUEGO , Elemento.TIERRA , Elemento.AIRE ]
         daños_esperados = [[10, 12, 8, 10],[8,10,12,10],[10,10,10,10],[12,8,10,10]]
-        daños_calculados = [[]]
+        daños_calculados = []
         for elemento_ataque in range(0, 4):
             mi_ataque = Ataque(elementos[elemento_ataque])
+            mi_ataque_daños = []
             for elemento_defensa in range(0, 4):
-                daños_calculados[elemento_ataque][elemento_defensa] = mi_ataque.calcular_danio([elementos[elemento_defensa]])	
+                mi_ataque_daños.append(mi_ataque.calcular_danio([elementos[elemento_defensa]]))	
+            daños_calculados.append(mi_ataque_daños)
         assert daños_esperados == daños_calculados, 'algun calculo de daño esta fallando'
 	
 
@@ -37,11 +39,13 @@ class TestAtaque(unittest.TestCase):
     def test_verificar_matriz_de_daño_especial(self):
         elementos = [ Elemento.AGUA , Elemento.FUEGO , Elemento.TIERRA , Elemento.AIRE ]
         daños_esperados = [[15, 18, 12, 15],[12,15,18,15],[15,15,15,15],[18,12,15,15]]
-        daños_calculados = [[]]
+        daños_calculados = []
         for elemento_ataque in range(0, 4):
             mi_ataque = Ataque_especial(elementos[elemento_ataque])
+            mi_ataque_daños = []
             for elemento_defensa in range(0, 4):
-                daños_calculados[elemento_ataque][elemento_defensa] = mi_ataque.calcular_danio([elementos[elemento_defensa]])	
+                mi_ataque_daños.append(mi_ataque.calcular_danio([elementos[elemento_defensa]]))	
+            daños_calculados.append(mi_ataque_daños)
         assert daños_esperados == daños_calculados, 'algun calculo de daño esta fallando'
 
 if __name__=="__main__":
