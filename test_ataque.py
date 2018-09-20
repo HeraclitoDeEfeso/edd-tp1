@@ -11,13 +11,13 @@ class TestAtaque(unittest.TestCase):
         pass
 
     def test_se_puede_crear_un_ataque_de_cada_elemento(self):
-        a = Ataque(Elemento.Fuego)
-        b = Ataque(Elemento.Agua)
-        c = Ataque(Elemento.Tierra)
-        d = Ataque(Elemento.Aire)
+        a = Ataque(Elemento.FUEGO)
+        b = Ataque(Elemento.AGUA)
+        c = Ataque(Elemento.TIERRA)
+        d = Ataque(Elemento.AIRE)
 
     def test_verificar_matriz_de_daño(self):
-        elementos = [ Elemento.Agua , Elemento.Fuego , Elemento.Tierra , Elemento.Aire ]
+        elementos = [ Elemento.AGUA , Elemento.FUEGO , Elemento.TIERRA , Elemento.AIRE ]
         daños_esperados = [[10, 12, 8, 10],[8,10,12,10],[10,10,10,10],[12,8,10,10]]
         daños_calculados = [[]]
         for elemento_ataque in range(0, 4):
@@ -28,14 +28,14 @@ class TestAtaque(unittest.TestCase):
 	
 
     def test_se_puede_crear_un_ataque_especial_de_cada_elemento(self):
-        a = Ataque_especial(Elemento.Fuego)
-        b = Ataque_especial(Elemento.Agua)
-        c = Ataque_especial(Elemento.Tierra)
-        d = Ataque_especial(Elemento.Aire)
+        a = Ataque_especial(Elemento.FUEGO)
+        b = Ataque_especial(Elemento.AGUA)
+        c = Ataque_especial(Elemento.TIERRA)
+        d = Ataque_especial(Elemento.AIRE)
 
 
     def test_verificar_matriz_de_daño_especial(self):
-        elementos = [ Elemento.Agua , Elemento.Fuego , Elemento.Tierra , Elemento.Aire ]
+        elementos = [ Elemento.AGUA , Elemento.FUEGO , Elemento.TIERRA , Elemento.AIRE ]
         daños_esperados = [[15, 18, 12, 15],[12,15,18,15],[15,15,15,15],[18,12,15,15]]
         daños_calculados = [[]]
         for elemento_ataque in range(0, 4):
