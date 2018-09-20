@@ -21,9 +21,9 @@ class TestAtaque(unittest.TestCase):
         daños_esperados = [[10, 12, 8, 10],[8,10,12,10],[10,10,10,10],[12,8,10,10]]
         daños_calculados = [[]]
         for elemento_ataque in range(0, 4):
-            mi_ataque = Ataque(elmentos[elemento_ataque])
+            mi_ataque = Ataque(elementos[elemento_ataque])
             for elemento_defensa in range(0, 4):
-                daños_calculados[elemento_ataque][elemento_defensa] = miAtaque.calcularDaño(Elemento.elementos[elementoDefensa]);	
+                daños_calculados[elemento_ataque][elemento_defensa] = mi_ataque.calcularDaño(Elemento.elementos[elemento_defensa])	
                 assert daños_esperados == daños_calculados, 'algun calculo de daño esta fallando'
 	
 
@@ -39,9 +39,9 @@ class TestAtaque(unittest.TestCase):
         daños_esperados = [[15, 18, 12, 15],[12,15,18,15],[15,15,15,15],[18,12,15,15]]
         daños_calculados = [[]]
         for elemento_ataque in range(0, 4):
-            mi_ataque = Ataque_especial(elmentos[elemento_ataque])
+            mi_ataque = Ataque_especial(elementos[elemento_ataque])
             for elemento_defensa in range(0, 4):
-                daños_calculados[elemento_ataque][elemento_defensa] = miAtaque.calcularDaño(Elemento.elementos[elementoDefensa]);	
+                daños_calculados[elemento_ataque][elemento_defensa] = mi_ataque.calcularDaño(Elemento.elementos[elemento_defensa])	
                 assert daños_esperados == daños_calculados, 'algun calculo de daño esta fallando'
 
 if __name__=="__main__":
