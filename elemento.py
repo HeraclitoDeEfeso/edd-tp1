@@ -1,21 +1,23 @@
-import enum
+from enum import Enum
 
-class Elemento(enum.Enum):
+class Elemento(Enum):
     # El orden parcial del ataque es Agua > Fuego, 
     # Fuego > Tierra, Tierra > Aire y Aire > Agua
     # El orden parcial de la defensa es Agua > Fuego, 
     # Fuego > Aire, Aire > Tierra y Tierra > Agua
     AGUA = ("FUEGO", "FUEGO")
     TIERRA = ("AIRE", "AGUA")
-    AIRE = ("AGUA", "FUEGO")
+    AIRE = ("AGUA", "TIERRA")
     FUEGO = ("TIERRA", "AIRE")
+    NADA = ()
 
     def supera_en_ataque(self, other):
-        return other == Elemento[self.value[0]]
+        return self != Elemento.NADA and other == Elemento[self.value[0]]
 
     def supera_en_defensa(self, other):
-        return other == Elemento[self.value[1]]
+        return self != Elemento.NADA and other == Elemento[self.value[1]]
 
     def __repr__(self):
-        return "Elemento %s: supera en ataque al %s, supera en defensa al %s"\
+        return "Elemento nulo" if self == Elemento.NADA else \
+                "Elemento %s: supera en ataque a %s, supera en defensa a %s"\
                 % (self.name, self.value[0], self.value[1])
