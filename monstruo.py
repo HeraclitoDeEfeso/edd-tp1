@@ -33,10 +33,4 @@ class Monstruo():
         if ataque.calcular_danio(self.generar_opciones()) <= self.__estado_vital__ :
             self.__estado_vital__ -= ataque.calcular_danio(self.generar_opciones())
         else: self.__estado_vital__ = 0
-        
 
-
-jorge = Monstruo(Elemento.FUEGO, Elemento.AGUA)
-marco = Monstruo(Elemento.FUEGO, Elemento.AGUA)
-jorge.recibir_ataque(marco.generar_ataque(Elemento.FUEGO))
-print(jorge.__estado_vital__)
