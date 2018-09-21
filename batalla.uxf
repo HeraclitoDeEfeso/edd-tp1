@@ -241,7 +241,7 @@ NADA
 --
 supera_en_ataque(Elemento): bool
 supera_en_defensa(Elemento): bool
-__repr__(): str</panel_attributes>
+__str__(): str</panel_attributes>
     <additional_attributes/>
   </element>
   <element>

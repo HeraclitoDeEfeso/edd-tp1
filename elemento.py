@@ -17,7 +17,7 @@ class Elemento(Enum):
     def supera_en_defensa(self, other):
         return self != Elemento.NADA and other == Elemento[self.value[1]]
 
-    def __repr__(self):
+    def __str__(self):
         return "Elemento nulo" if self == Elemento.NADA else \
                 "Elemento %s: supera en ataque a %s, supera en defensa a %s"\
                 % (self.name, self.value[0], self.value[1])
