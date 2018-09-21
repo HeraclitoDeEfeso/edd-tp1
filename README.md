@@ -29,3 +29,7 @@ Consultar el resto en https://sites.google.com/site/estructurasdedatosuntref/tra
 ### Diagrama de clases
 
 ![Diagrama de clases](/batalla.png)
+
+### Clase `Elemento`
+
+Detalles de implementación en la Jupyter Notebook del (módulo `elemento`)[elemento.ipynb]
