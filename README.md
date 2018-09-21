@@ -32,4 +32,4 @@ Consultar el resto en https://sites.google.com/site/estructurasdedatosuntref/tra
 
 ### Clase `Elemento`
 
-Detalles de implementación en la Jupyter Notebook del (módulo `elemento`)[elemento.ipynb]
+Detalles de implementación en la Jupyter Notebook del [módulo `elemento`](elemento.ipynb)
