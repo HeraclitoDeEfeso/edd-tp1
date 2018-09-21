@@ -6,7 +6,7 @@ class Batalla():
 
     def __init__(self, nombrePrimerJugador, primerElementoPrimerJugador, segundoElementoPrimerJugador, nombreSegundoJugador, primerElementoSegundoJugador, segundoElementoSegundoJugador):
         try:
-            elementos = [fuego = Fuego(), tierra = Tierra(), aire = Aire(), agua = Agua()]
+            elementos = [Elemento.FUEGO, Elemento.TIERRA, Elemento.AIRE, Elemento.AGUA]
             atacante = Jugador(nombrePrimerJugador, Monstruo(primerElementoPrimerJugador, segundoElementoPrimerJugador))
             defensor = Jugador(nombreSegundoJugador, Monstruo(primerElementoSegundoJugador, segundoElementoSegundoJugador))
             if (nombrePrimerJugador == nombreSegundoJugador):
