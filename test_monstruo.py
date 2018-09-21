@@ -3,34 +3,33 @@
 
 import unittest
 from monstruo import Monstruo
-from ataque import Ataque
-from ataque_especial import Ataque_especial
+from ataque import Ataque, Ataque_especial
+from elemento import Elemento
 
 class TestMonstruo(unittest.TestCase):
 
     def setUp(self):
-    	monster = Monstruo(Elemento.FUEGO,Elemento.AGUA)
-	pass
+        self.monster = Monstruo(Elemento.FUEGO,Elemento.AGUA)
 
-    def verificando_monstruo_creado(self):
-		self.assertEqual(100.0, monster.__estado_vital__)
-		self.assertEqual(4, monster.__ataques_especiales_restantes__)
-		self.assertEqual(Elemento.AGUA, monster.__elementos__[0])
-		self.assertEqual(Elemento.FUEGO, monster.__elementos__[1])
+    def test_verificando_monstruo_creado(self):
+        self.assertEqual(100.0, self.monster.__estado_vital__)
+        self.assertEqual(4, self.monster.__ataques_especiales_restantes__)
+        self.assertEqual(Elemento.AGUA, self.monster.__elementos__[0])
+        self.assertEqual(Elemento.FUEGO, self.monster.__elementos__[1])
 
-	#Aun no entiendo que hace esta funcion. Leandro Amodey
-	def verificando_opciones_iniciales(self):
-		opciones_monster = monster.generar_opciones()
+    #Aun no entiendo que hace esta funcion. Leandro Amodey
+    def test_verificando_opciones_iniciales(self):
+        opciones_monster = self.monster.generar_opciones()
 
-	def verificando_generar_ataque_basico(self):
-		ataque_basico = monster.generar_ataque(Elemento.FUEGO)
-		assertIsInstance(ataque_basico, Ataque)
+    def test_verificando_generar_ataque_basico(self):
+        ataque_basico = self.monster.generar_ataque(Elemento.FUEGO)
+        self.assertIsInstance(ataque_basico, Ataque)
 
-	def verificando_generar_ataque_especial(self):
-		ataque_especial = monster.generar_ataque_especial(Elemento.FUEGO)
-		assertIsInstance(ataque_especial, Ataque_especial)
+    def test_verificando_generar_ataque_especial(self):
+        ataque_especial = self.monster.generar_ataque_especial(Elemento.FUEGO)
+        self.assertIsInstance(ataque_especial, Ataque_especial)
 
-	def verificando_recibir_ataque_disminuye_vida(self):
-		ataque_impactado = Ataque(Elemento.AGUA)
-		monster.recibir_ataque(ataque_impactado)
-		assertLess(100, monster.__estado_vital__)
+    def test_verificando_recibir_ataque_disminuye_vida(self):
+        ataque_impactado = Ataque(Elemento.AGUA)
+        self.monster.recibir_ataque(ataque_impactado)
+        self.assertLess(100, self.monster.__estado_vital__)
