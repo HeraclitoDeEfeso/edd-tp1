@@ -14,8 +14,8 @@ class TestMonstruo(unittest.TestCase):
     def test_verificando_monstruo_creado(self):
         self.assertEqual(100.0, self.monster.__estado_vital__)
         self.assertEqual(4, self.monster.__ataques_especiales_restantes__)
-        self.assertEqual(Elemento.AGUA, self.monster.__elementos__[0])
-        self.assertEqual(Elemento.FUEGO, self.monster.__elementos__[1])
+        self.assertEqual(Elemento.AGUA, self.monster.__elementos__[1])
+        self.assertEqual(Elemento.FUEGO, self.monster.__elementos__[0])
 
     #Aun no entiendo que hace esta funcion. Leandro Amodey
     def test_verificando_opciones_iniciales(self):
@@ -32,4 +32,7 @@ class TestMonstruo(unittest.TestCase):
     def test_verificando_recibir_ataque_disminuye_vida(self):
         ataque_impactado = Ataque(Elemento.AGUA)
         self.monster.recibir_ataque(ataque_impactado)
-        self.assertLess(100, self.monster.__estado_vital__)
+        self.assertLess(self.monster.__estado_vital__, 100)
+
+if __name__=="__main__":
+    unittest.main(argv=['first-arg-is-ignored'], verbosity=2, exit=False)
