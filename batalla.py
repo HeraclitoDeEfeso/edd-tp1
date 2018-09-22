@@ -1,15 +1,14 @@
 from jugador import Jugador
 from elemento import Elemento
 from ataque import Ataque
-from monstruo import Monstruo
 
 class Batalla(object):
 
     def __init__(self, nombrePrimerJugador, primerElementoPrimerJugador, segundoElementoPrimerJugador, nombreSegundoJugador, primerElementoSegundoJugador, segundoElementoSegundoJugador):
         try:
             self.elementos = [Elemento.FUEGO, Elemento.TIERRA, Elemento.AIRE, Elemento.AGUA]
-            self.__jugador_atacante__ = Jugador(nombrePrimerJugador, Monstruo(primerElementoPrimerJugador, segundoElementoPrimerJugador))
-            self.__jugador_defensor__ = Jugador(nombreSegundoJugador, Monstruo(primerElementoSegundoJugador, segundoElementoSegundoJugador))
+            self.__jugador_atacante__ = Jugador(nombrePrimerJugador, primerElementoPrimerJugador, segundoElementoPrimerJugador)
+            self.__jugador_defensor__ = Jugador(nombreSegundoJugador, primerElementoSegundoJugador, segundoElementoSegundoJugador)
             if (nombrePrimerJugador == nombreSegundoJugador):
                 raise ValueError("Nombres de monstruo idénticos")
                 raise Exception("Nombres idénticos")
@@ -26,8 +25,8 @@ class Batalla(object):
         self.__jugador_defensor__.__str__()
 
     def termino(self):
-        return (self.__jugador_atacante__.__estado_vital__ <= 0 
-                or self.__jugador_defensor__.__estado_vital__ <= 0)
+        return (self.__jugador_atacante__.__monstruo__.__estado_vital__ <= 0 
+                or self.__jugador_defensor__.__monstruo__.__estado_vital__ <= 0)
 
     def ganador(self):
         ganador = None
@@ -41,7 +40,7 @@ class Batalla(object):
                 raise ValueError("Todos los ataques deben tener un elemento")
                 raise Exception("Ataque no elemental")
             elif (not self.termino()):
-                self.__jugador_defensor__.recibirAtaque(ataque)
+                self.__jugador_defensor__.__monstruo__.recibir_ataque(ataque)
                 auxiliar = self.__jugador_atacante__
                 self.__jugador_atacante__ = self.__jugador_defensor__
                 self.__jugador_defensor__ = auxiliar
