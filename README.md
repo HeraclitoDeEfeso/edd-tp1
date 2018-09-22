@@ -33,3 +33,7 @@ Consultar el resto en https://sites.google.com/site/estructurasdedatosuntref/tra
 ### Clase `Elemento`
 
 Detalles de implementación en la Jupyter Notebook del [módulo `elemento`](elemento.ipynb)
+
+### Clases `Ataque` y `Ataque_especial`
+
+Detalles de implementación en la Jupyter Notebook del [módulo `ataque`](ataque.ipynb)
