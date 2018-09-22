@@ -3,13 +3,13 @@ from elemento import Elemento
 from ataque import Ataque
 from monstruo import Monstruo
 
-class Batalla():
+class Batalla(object):
 
     def __init__(self, nombrePrimerJugador, primerElementoPrimerJugador, segundoElementoPrimerJugador, nombreSegundoJugador, primerElementoSegundoJugador, segundoElementoSegundoJugador):
         try:
             self.elementos = [Elemento.FUEGO, Elemento.TIERRA, Elemento.AIRE, Elemento.AGUA]
-            self.atacante = Jugador(nombrePrimerJugador, Monstruo(primerElementoPrimerJugador, segundoElementoPrimerJugador))
-            self.defensor = Jugador(nombreSegundoJugador, Monstruo(primerElementoSegundoJugador, segundoElementoSegundoJugador))
+            self.__jugador_atacante__ = Jugador(nombrePrimerJugador, Monstruo(primerElementoPrimerJugador, segundoElementoPrimerJugador))
+            self.__jugador_defensor__ = Jugador(nombreSegundoJugador, Monstruo(primerElementoSegundoJugador, segundoElementoSegundoJugador))
             if (nombrePrimerJugador == nombreSegundoJugador):
                 raise ValueError("Nombres de monstruo idénticos")
                 raise Exception("Nombres idénticos")
@@ -20,19 +20,19 @@ class Batalla():
         return str(self.__dict__)
 
     def obtenerJugadorAtacante(self):
-        self.atacante.__str__()
+        self.__jugador_atacante__.__str__()
 
     def obtenerJugadorDefensor(self):
-        self.defensor.__str__()
+        self.__jugador_defensor__.__str__()
 
     def termino(self):
-        return (self.atacante.__estado_vital__ <= 0 
-                or self.defensor.__estado_vital__ <= 0)
+        return (self.__jugador_atacante__.__estado_vital__ <= 0 
+                or self.__jugador_defensor__.__estado_vital__ <= 0)
 
-    def obternerGanador(self):
+    def ganador(self):
         ganador = None
         if (self.termino()):
-            ganador = self.defensor
+            ganador = self.__jugador_defensor__
         return ganador
 
     def jugada(self, ataque):
@@ -41,10 +41,10 @@ class Batalla():
                 raise ValueError("Todos los ataques deben tener un elemento")
                 raise Exception("Ataque no elemental")
             elif (not self.termino()):
-                self.defensor.recibirAtaque(ataque)
-                auxiliar = self.atacante
-                self.atacante = self.defensor
-                self.defensor = auxiliar
+                self.__jugador_defensor__.recibirAtaque(ataque)
+                auxiliar = self.__jugador_atacante__
+                self.__jugador_atacante__ = self.__jugador_defensor__
+                self.__jugador_defensor__ = auxiliar
         except Exception as error:
             print("Error detectado : " + repr(error))
 
