@@ -21,7 +21,7 @@ class Monstruo():
 
     def generar_ataque_especial(self, elemento):
         assert self.__ataques_especiales_restantes__ >= 0, 'no te quedan mas ataques especiales'
-        assert self.elemento[0] == elemento or self.elemento[1] == elemento, 'este monstruo no posee el elemento indicado'
+        assert self.__elementos__[0] == elemento or self.__elementos__[1] == elemento, 'este monstruo no posee el elemento indicado'
         ataque = Ataque_especial(elemento)
         self.__ataques_especiales_restantes__  -= 1
         return ataque
