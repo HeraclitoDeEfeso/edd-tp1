@@ -9,7 +9,7 @@ class Elemento(Enum):
     TIERRA = ("AIRE", "AGUA")
     AIRE = ("AGUA", "TIERRA")
     FUEGO = ("TIERRA", "AIRE")
-    NADA = ()
+    NADA = ("NADA","NADA")
 
     def supera_en_ataque(self, other):
         return self != Elemento.NADA and other == Elemento[self.value[0]]
