@@ -91,8 +91,8 @@ class TestBatalla(unittest.TestCase):
         estado_vital_monstruo_atacante = monstruo_atacante.__estado_vital__
         estado_vital_monstruo_defensor = monstruo_defensor.__estado_vital__
         mi_batalla.jugada(monstruo_atacante.generar_ataque(monstruo_atacante.generar_opciones()[0]))
-        self.assertTrue(estado_vital_monstruo_atacante, monstruo_atacante.__estado_vital__)
-        self.assertTrue(estado_vital_monstruo_defensor, monstruo_defensor.__estado_vital__)
+        self.assertEqual(estado_vital_monstruo_atacante, monstruo_atacante.__estado_vital__)
+        self.assertEqual(estado_vital_monstruo_defensor, monstruo_defensor.__estado_vital__)
 
 if __name__=="__main__":
 
