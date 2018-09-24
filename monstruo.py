@@ -7,7 +7,7 @@ class Monstruo():
     def __init__(self, elem_1, elem_2):
         self.__elementos__ = []
         assert elem_1 != elem_2,'los elementos deben ser diferentes'
-        assert elem_1 != Elemento.NADA and elem_2 != Elemento.NADA, 'los dos elementos no pueden ser nulos'
+        assert elem_1 != Elemento.NADA or elem_2 != Elemento.NADA, 'los dos elementos no pueden ser nulos'
         self.__elementos__.append(elem_1)
         self.__elementos__.append(elem_2)
         self.__estado_vital__ = 100
