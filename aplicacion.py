@@ -4,15 +4,20 @@ CANTIDAD_DE_JUGADORES = 2
 CANTIDAD_DE_ELEMENTOS_POR_JUGADORES = 2
 
 def main():
+	m_inicial = Menu(titulo, opciones)
+	m_turno = Menu(titulo, opciones)
     pass
 
 def __crear_batalla__():
     pass
 
+def __guardar_partida__(batalla):
+	pass
+
 def __jugar_partida__(batalla):
     pass
 
-def __mostrar_resultado_final(batalla):
+def __mostrar_resultado_final__(batalla):
     pass
 
 def __mostrar_resultado_parcial__(batalla):
