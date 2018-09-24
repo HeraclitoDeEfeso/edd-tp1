@@ -14,6 +14,22 @@ class TestBatalla(unittest.TestCase):
     def test_se_puede_crear_una_batalla(self):
         self.assertIsInstance(self.batalla, Batalla)
 
+    def test_se_puede_crear_una_batalla_con_primer_jugador_con_un_solo_elemento_1(self):
+        mi_batalla = Batalla("Natalia", Elemento.AGUA, Elemento.NADA, "Pedro", Elemento.AIRE, Elemento.TIERRA)
+        self.assertTrue (mi_batalla._jugador_atacante_ is None)
+
+    def test_se_puede_crear_una_batalla_con_primer_jugador_con_un_solo_elemento_2(self):
+        mi_batalla = Batalla("Natalia", Elemento.NADA, Elemento.FUEGO, "Pedro", Elemento.AIRE, Elemento.TIERRA)
+        self.assertTrue (mi_batalla._jugador_atacante_ is None)
+
+    def test_se_puede_crear_una_batalla_con_segundo_jugador_con_un_solo_elemento_1(self):
+        mi_batalla = Batalla("Natalia", Elemento.AGUA, Elemento.FUEGO, "Pedro", Elemento.AIRE, Elemento.NADA)
+        self.assertTrue (mi_batalla._jugador_defensor_ is None)
+
+    def test_se_puede_crear_una_batalla_con_segundo_jugador_con_un_solo_elemento_2(self):
+        mi_batalla = Batalla("Natalia", Elemento.AGUA, Elemento.FUEGO, "Pedro", Elemento.NADA, Elemento.TIERRA)
+        self.assertTrue (mi_batalla._jugador_defensor_ is None)
+
     def test_no_se_puede_crear_una_batalla_con_cadena_vacia_como_nombre_del_primer_jugador(self):
         self.assertRaises(Exception, Batalla, "", Elemento.AGUA, Elemento.FUEGO, "Pedro", Elemento.AIRE, Elemento.TIERRA)
 
