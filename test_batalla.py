@@ -55,30 +55,30 @@ class TestBatallaTerminada(unittest.TestCase):
         while not batalla.termino():
             mi_monstruo = batalla.__jugador_atacante__.__monstruo__
             batalla.jugada(mi_monstruo.generar_ataque(mi_monstruo.generar_opciones()[0]))
-        cls.batalla_terminada = batalla
+        cls.batalla = batalla
 
     def test_terminada_una_batalla_el_ganador_es_el_defensor_porque_el_ultimo_ataque_avanzo_el_turno(self):
-        self.assertEqual(self.batalla_terminada.__jugador_defensor__, self.batalla_terminada.ganador())
+        self.assertEqual(self.batalla.__jugador_defensor__, self.batalla.ganador())
 
     def test_terminada_una_batalla_si_se_intenta_otra_jugada_sigue_terminada(self):
-        mi_monstruo = self.batalla_terminada.__jugador_atacante__.__monstruo__
-        self.batalla_terminada.jugada(mi_monstruo.generar_ataque(mi_monstruo.generar_opciones()[0]))
-        self.assertTrue(self.batalla_terminada.termino())
+        mi_monstruo = self.batalla.__jugador_atacante__.__monstruo__
+        self.batalla.jugada(mi_monstruo.generar_ataque(mi_monstruo.generar_opciones()[0]))
+        self.assertTrue(self.batalla.termino())
         
     def test_terminada_una_batalla_si_se_intenta_otra_jugada_no_cambia_el_turno(self):
-        mi_jugador = self.batalla_terminada.__jugador_atacante__
+        mi_jugador = self.batalla.__jugador_atacante__
         mi_monstruo = mi_jugador.__monstruo__
-        self.batalla_terminada.jugada(mi_monstruo.generar_ataque(mi_monstruo.generar_opciones()[0]))
-        self.assertEqual(mi_jugador, self.batalla_terminada.__jugador_atacante__)
+        self.batalla.jugada(mi_monstruo.generar_ataque(mi_monstruo.generar_opciones()[0]))
+        self.assertEqual(mi_jugador, self.batalla.__jugador_atacante__)
 
     def test_terminada_una_batalla_si_se_intenta_otra_jugada_no_tiene_efecto_en_la_vida_de_los_monstruos(self):
-        jugador_atacante = self.batalla_terminada.__jugador_atacante__
-        jugador_defensor = self.batalla_terminada.__jugador_defensor__
+        jugador_atacante = self.batalla.__jugador_atacante__
+        jugador_defensor = self.batalla.__jugador_defensor__
         monstruo_atacante = jugador_atacante.__monstruo__
         monstruo_defensor = jugador_defensor.__monstruo__
         estado_vital_monstruo_atacante = monstruo_atacante.__estado_vital__
         estado_vital_monstruo_defensor = monstruo_defensor.__estado_vital__
-        self.batalla_terminada.jugada(monstruo_atacante.generar_ataque(monstruo_atacante.generar_opciones()[0]))
+        self.batalla.jugada(monstruo_atacante.generar_ataque(monstruo_atacante.generar_opciones()[0]))
         self.assertEqual(estado_vital_monstruo_atacante, monstruo_atacante.__estado_vital__)
         self.assertEqual(estado_vital_monstruo_defensor, monstruo_defensor.__estado_vital__)
 
