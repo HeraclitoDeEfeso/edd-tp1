@@ -1,3 +1,4 @@
+from menu import Menu
 from batalla import Batalla
 from elemento import Elemento
 import os
@@ -5,53 +6,35 @@ import os
 CANTIDAD_DE_JUGADORES = 2
 CANTIDAD_DE_ELEMENTOS_POR_JUGADORES = 2
 
-class Menu(object):
-    def __init__(self, titulo, opciones):
-        pass
-
 def main():
-    #titulo = None
-    #opciones = None
-    #m_inicial = Menu(titulo, opciones)
-    #m_turno = Menu(titulo, opciones)
-
     while True:
         #Limpio Pantalla
         os.system('cls')
-        print("Bienvenido a la batalla de monstruos. Seleccione una opcion:")
-        print ("\t1 - Crear Partida")
-        print ("\t2 - Cargar Partida Iniciada")
-        print ("\t3 - Salir")
-
-        opcionMenu = input("Inserta el numero de opcion >> ")
+        menu_inicial = Menu("Bienvenido a la batalla de monstruos. Seleccione una opcion:",{"1":"Crear Partida","2":"Cargar Partida Iniciada","3":"Salir"})
+        opcionMenu = menu_inicial.mostrar_y_pedir_input()
 
         if opcionMenu=="1":
-
+   	        menu_creacion_elementos1 = Menu("Selecciona el primer elemento para tu monstruo:",{"1":"AGUA","2":"FUEGO","3":"TIERRA","4":"AIRE","5":"Sin elemento"})
+        	menu_creacion_elementos2 = Menu("Selecciona el segundo elemento para tu monstruo:",{"1":"AGUA","2":"FUEGO","3":"TIERRA","4":"AIRE","5":"Sin elemento"})
             os.system('cls')
             print ("Creando jugador numero 1")
             nombrej1 = input("Ingresa el nombre del jugador 1 y luego presiona Enter.")
             elementoj1_1 = Elemento.NADA
             elementoj1_2 = Elemento.NADA
-            print("Seleccionando el primer tipo de elemento de tu monstruo:\n")
-            print("\t1 - AGUA")
-            print("\t2 - FUEGO")
-            print("\t3 - TIERRA")
-            print("\t4 - AIRE")
-            print("\t5 - Sin elemento")
 
             while True:
-                opcionElemento = input("Inserta el numero de opcion:")
+                opcionElemento = menu_creacion_elementos1.mostrar_y_pedir_input()
                 if opcionElemento=="1":
-                    elemento1 = Elemento.AGUA
+                    elementoj1_1 = Elemento.AGUA
                     break
                 elif opcionElemento=="2":
-                    elemento1 = Elemento.FUEGO
+                    elementoj1_1 = Elemento.FUEGO
                     break
                 elif opcionElemento=="3":
-                    elemento1 = Elemento.TIERRA
+                    elementoj1_1 = Elemento.TIERRA
                     break
                 elif opcionElemento=="4":
-                    elemento1 = Elemento.AIRE
+                    elementoj1_1 = Elemento.AIRE
                     break
                 elif opcionElemento=="5":
                     break
@@ -59,26 +42,20 @@ def main():
                     print("No se ingreso ninguna opcion valida. Reintentando.")
 
             os.system("cls")
-            print("Seleccionando el segundo tipo de elemento de tu monstruo:\n")
-            print("\t1 - AGUA")
-            print("\t2 - FUEGO")
-            print("\t3 - TIERRA")
-            print("\t4 - AIRE")
-            print("\t5 - Sin elemento")
 
             while True:
-                opcionElemento = input("Inserta el numero de opcion:")
+                opcionElemento = menu_creacion_elementos2.mostrar_y_pedir_input()
                 if opcionElemento=="1":
-                    elemento2 = Elemento.AGUA
+                    elementoj1_2 = Elemento.AGUA
                     break
                 elif opcionElemento=="2":
-                    elemento2 = Elemento.FUEGO
+                    elementoj1_2 = Elemento.FUEGO
                     break
                 elif opcionElemento=="3":
-                    elemento2 = Elemento.TIERRA
+                    elementoj1_2 = Elemento.TIERRA
                     break
                 elif opcionElemento=="4":
-                    elemento2 = Elemento.AIRE
+                    elementoj1_2 = Elemento.AIRE
                     break
                 elif opcionElemento=="5":
                     break
@@ -87,29 +64,23 @@ def main():
 
             os.system('cls')
             print ("Creando jugador numero 2")
-            nombrej2 = input("Ingresa el nombre del jugador 1 y luego presiona Enter.")
+            nombrej2 = input("Ingresa el nombre del jugador 2 y luego presiona Enter.")
             elementoj2_1 = Elemento.NADA
             elementoj2_2 = Elemento.NADA
-            print("Seleccionando el primer tipo de elemento de tu monstruo:\n")
-            print("\t1 - AGUA")
-            print("\t2 - FUEGO")
-            print("\t3 - TIERRA")
-            print("\t4 - AIRE")
-            print("\t5 - Sin elemento")
 
             while True:
-                opcionElemento = input("Inserta el numero de opcion:")
+                opcionElemento = menu_creacion_elementos1.mostrar_y_pedir_input()
                 if opcionElemento=="1":
-                    elemento1 = Elemento.AGUA
+                    elemento2_1 = Elemento.AGUA
                     break
                 elif opcionElemento=="2":
-                    elemento1 = Elemento.FUEGO
+                    elemento2_1 = Elemento.FUEGO
                     break
                 elif opcionElemento=="3":
-                    elemento1 = Elemento.TIERRA
+                    elemento2_1 = Elemento.TIERRA
                     break
                 elif opcionElemento=="4":
-                    elemento1 = Elemento.AIRE
+                    elemento2_1 = Elemento.AIRE
                     break
                 elif opcionElemento=="5":
                     break
@@ -117,31 +88,33 @@ def main():
                     print("No se ingreso ninguna opcion valida. Reintentando.")
 
             os.system("cls")
-            print("Seleccionando el segundo tipo de elemento de tu monstruo:\n")
-            print("\t1 - AGUA")
-            print("\t2 - FUEGO")
-            print("\t3 - TIERRA")
-            print("\t4 - AIRE")
-            print("\t5 - Sin elemento")
-
             while True:
-                opcionElemento = input("Inserta el numero de opcion:")
+                opcionElemento = menu_creacion_elementos2.mostrar_y_pedir_input()
                 if opcionElemento=="1":
-                    elemento2 = Elemento.AGUA
+                    elemento2_2 = Elemento.AGUA
                     break
                 elif opcionElemento=="2":
-                    elemento2 = Elemento.FUEGO
+                    elemento2_2 = Elemento.FUEGO
                     break
                 elif opcionElemento=="3":
-                    elemento2 = Elemento.TIERRA
+                    elemento2_2 = Elemento.TIERRA
                     break
                 elif opcionElemento=="4":
-                    elemento2 = Elemento.AIRE
+                    elemento2_2 = Elemento.AIRE
                     break
                 elif opcionElemento=="5":
                     break
                 else:
                     print("No se ingreso ninguna opcion valida. Reintentando.")
+
+            try:
+            	batallaEnJuego = Batalla(nombrej1,elementoj1_1,elementoj1_2,nombrej2,elementoj2_1,elementoj2_2)
+
+            except Exception:
+
+            __jugar_turno__(batallaEnJuego)
+
+
 
 
         elif opcionMenu=="2":
