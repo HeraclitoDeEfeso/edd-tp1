@@ -37,3 +37,7 @@ Detalles de implementación en la Jupyter Notebook del [módulo `elemento`](elem
 ### Clases `Ataque` y `Ataque_especial`
 
 Detalles de implementación en la Jupyter Notebook del [módulo `ataque`](ataque.ipynb)
+
+### Clase `Monstruo`
+
+Detalles de implementación en la Jupyter Notebook del [módulo `monstruo`](monstruo.ipynb)
