@@ -74,11 +74,11 @@ def __elegir_elemento__(menu):
             print("No se ingreso ninguna opcion valida. Reintentando.")
 
 def __jugar_turno__(batalla):
-    mi_monstruo = batalla.__jugador_atacante__.__monstruo__
     menu_jugada = Menu("Batalla en progreso.\nSeleccione una acción:",{"1":"Realizar una jugada", "2":"Guardar Batalla actual", "3":"Salir sin guardar"})
     menu_ataque = Menu("Seleccione el tipo de ataque a realizar:", {"1":"Ataque Normal", "2":"Ataque Especial"})
-    menu_elemento = Menu("Seleccione el elemento del monstruo con que atacar:", {"1":str(mi_monstruo.__elementos__[0]), "2":str(mi_monstruo.__elementos__[1])})
     while not(batalla.termino()):
+        mi_monstruo = batalla.__jugador_atacante__.__monstruo__
+        menu_elemento = Menu("Seleccione el elemento del monstruo con que atacar:", {"1":str(mi_monstruo.__elementos__[0]), "2":str(mi_monstruo.__elementos__[1])})
         print("")
         opcion_jugada = menu_jugada.mostrar_y_pedir_input()
         if(opcion_jugada == "1"):
@@ -89,10 +89,14 @@ def __jugar_turno__(batalla):
                 opcion_elemento = menu_elemento.mostrar_y_pedir_input()
                 if(opcion_elemento == "1"):
                     batalla.jugada(mi_monstruo.generar_ataque(mi_monstruo.__elementos__[0]))
-                    print("Estado Vital de" + str(batalla.__jugador_atacante__.__nombre__) + str(__jugador_atacante__.__monstruo__.__estado_vital__))
-                    print("Estado Vital de" + str(batalla.__jugador_defensor__.__nombre__) + str(__jugador_defensor__.__monstruo__.__estado_vital__))
+                    print("")
+                    print("Estado Vital de '" + batalla.__jugador_atacante__.__nombre__ + "' es " + str(batalla.__jugador_atacante__.__monstruo__.__estado_vital__))
+                    print("Estado Vital de '" + batalla.__jugador_defensor__.__nombre__ + "' es " + str(batalla.__jugador_defensor__.__monstruo__.__estado_vital__))
                 elif(opcion_elemento == "2"):
                     batalla.jugada(mi_monstruo.generar_ataque(mi_monstruo.__elementos__[1]))
+                    print("")
+                    print("Estado Vital de '" + batalla.__jugador_atacante__.__nombre__ + "' es " + str(batalla.__jugador_atacante__.__monstruo__.__estado_vital__))
+                    print("Estado Vital de '" + batalla.__jugador_defensor__.__nombre__ + "' es " + str(batalla.__jugador_defensor__.__monstruo__.__estado_vital__))
                 else:
                     input("Selección inválida. Reiniciando turno.")
             elif(opcion_ataque == "2"):
@@ -100,8 +104,14 @@ def __jugar_turno__(batalla):
                 opcion_elemento = menu_elemento.mostrar_y_pedir_input()
                 if(opcion_elemento == "1"):
                     batalla.jugada(mi_monstruo.generar_ataque_especial(mi_monstruo.__elementos__[0]))
+                    print("")
+                    print("Estado Vital de '" + batalla.__jugador_atacante__.__nombre__ + "' es " + str(batalla.__jugador_atacante__.__monstruo__.__estado_vital__))
+                    print("Estado Vital de '" + batalla.__jugador_defensor__.__nombre__ + "' es " + str(batalla.__jugador_defensor__.__monstruo__.__estado_vital__))
                 elif(opcion_elemento == "2"):
                     batalla.jugada(mi_monstruo.generar_ataque_especial(mi_monstruo.__elementos__[1]))
+                    print("")
+                    print("Estado Vital de '" + batalla.__jugador_atacante__.__nombre__ + "' es " + str(batalla.__jugador_atacante__.__monstruo__.__estado_vital__))
+                    print("Estado Vital de '" + batalla.__jugador_defensor__.__nombre__ + "' es " + str(batalla.__jugador_defensor__.__monstruo__.__estado_vital__))
                 else:
                     input("Selección inválida. Reiniciando turno.")
             else:
