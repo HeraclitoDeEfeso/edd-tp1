@@ -1,7 +1,10 @@
 from menu import Menu
 from batalla import Batalla
 from elemento import Elemento
+from monstruo import Monstruo
+from jugador import Jugador
 import os
+import pickle
 
 CANTIDAD_DE_JUGADORES = 2
 CANTIDAD_DE_ELEMENTOS_POR_JUGADORES = 2
@@ -24,8 +27,16 @@ def main():
                     print("Surgio un problema: %s" % e)
             break
         elif opcionMenu=="2":
-            print ("")
-            input("Has pulsado la opción 2...\npulsa una tecla para continuar")
+            print ("Cargando Partida . . .")
+            try:
+                archivo = open(NOMBRE_ARCHIVO_BATALLA,"r")
+            except Exception as e:
+                print("Hubo un error: %s" % e)
+
+            batallaEnJuego = pickle.load(archivo)
+            print("Partida cargada")
+            break
+
         elif opcionMenu=="3":
             input("Saliendo de la batalla. \n Hasta luego!")
             return
@@ -63,6 +74,12 @@ def __elegir_elemento__(menu):
 
 def __jugar_turno__(batalla):
     pass
+
+def __guardar_partida__(batalla):
+    archivo = open(NOMBRE_ARCHIVO_BATALLA,"w")
+    pickle.dump(batalla,archivo)
+    print("Se ha guardado la partida correctamente.")
+    return
 
 if __name__ == '__main__':
     main()
