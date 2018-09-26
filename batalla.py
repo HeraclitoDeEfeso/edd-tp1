@@ -16,10 +16,10 @@ class Batalla(object):
         return str(self.__dict__)
 
     def obtenerJugadorAtacante(self):
-        return (self.__jugador_atacante__.__str__())
+        return (str(self.__jugador_atacante__))
 
     def obtenerJugadorDefensor(self):
-        return (self.__jugador_defensor__.__str__())
+        return (str(self.__jugador_defensor__))
 
     def termino(self):
         return (self.__jugador_atacante__.__monstruo__.__estado_vital__ <= 0 
