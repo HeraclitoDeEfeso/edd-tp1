@@ -29,11 +29,11 @@ def main():
         elif opcionMenu=="2":
             print ("Cargando Partida . . .")
             try:
-                archivo = open(NOMBRE_ARCHIVO_BATALLA,"r")
+                archivo = open(NOMBRE_ARCHIVO_BATALLA,"rb")
             except Exception as e:
                 print("Hubo un error: %s" % e)
 
-            batallaEnJuego = pickle.load(archivo)
+            batallaEnJuego = pickle.load(archivo, fix_imports=False)
             print("Partida cargada")
             break
 
@@ -128,8 +128,8 @@ def __jugar_turno__(batalla):
         print(batalla.ganador())
 
 def __guardar_partida__(batalla):
-    archivo = open(NOMBRE_ARCHIVO_BATALLA,"w")
-    pickle.dump(batalla,archivo)
+    archivo = open(NOMBRE_ARCHIVO_BATALLA,"wb")
+    pickle.dump(batalla,archivo,fix_imports=False)
     print("Se ha guardado la partida correctamente.")
     return
 
