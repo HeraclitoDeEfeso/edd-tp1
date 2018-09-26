@@ -89,6 +89,8 @@ def __jugar_turno__(batalla):
                 opcion_elemento = menu_elemento.mostrar_y_pedir_input()
                 if(opcion_elemento == "1"):
                     batalla.jugada(mi_monstruo.generar_ataque(mi_monstruo.__elementos__[0]))
+                    print("Estado Vital de" + str(batalla.__jugador_atacante__.__nombre__) + str(__jugador_atacante__.__monstruo__.__estado_vital__))
+                    print("Estado Vital de" + str(batalla.__jugador_defensor__.__nombre__) + str(__jugador_defensor__.__monstruo__.__estado_vital__))
                 elif(opcion_elemento == "2"):
                     batalla.jugada(mi_monstruo.generar_ataque(mi_monstruo.__elementos__[1]))
                 else:
