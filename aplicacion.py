@@ -117,8 +117,9 @@ def __jugar_ataque__(batalla, metodo):
 
 def __resultado_parcial__(batalla):
     print("")
-    print("Estado Vital de '" + batalla.__jugador_atacante__.__nombre__ + "' es " + str(batalla.__jugador_atacante__.__monstruo__.__estado_vital__))
-    print("Estado Vital de '" + batalla.__jugador_defensor__.__nombre__ + "' es " + str(batalla.__jugador_defensor__.__monstruo__.__estado_vital__))
+    for jugador in [batalla.__jugador_atacante__,batalla.__jugador_defensor__]:
+        print("Estado Vital de %s es %d" %
+              (jugador.__nombre__, jugador.__monstruo__.__estado_vital__))
 
 def __guardar_partida__(batalla):
     archivo = open(NOMBRE_ARCHIVO_BATALLA,"wb")
