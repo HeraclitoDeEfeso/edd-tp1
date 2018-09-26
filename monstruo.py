@@ -6,8 +6,8 @@ class Monstruo():
     """ se deberia controlar los tipos de los parametros ?"""
     def __init__(self, elem_1, elem_2):
         self.__elementos__ = []
-        assert elem_1 != elem_2,'los elementos deben ser diferentes'
         assert elem_1 != Elemento.NADA or elem_2 != Elemento.NADA, 'los dos elementos no pueden ser nulos'
+        assert elem_1 != elem_2,'los elementos deben ser diferentes'
         self.__elementos__.append(elem_1)
         self.__elementos__.append(elem_2)
         self.__estado_vital__ = 100
@@ -20,7 +20,7 @@ class Monstruo():
         return ataque
 
     def generar_ataque_especial(self, elemento):
-        assert self.__ataques_especiales_restantes__ >= 0, 'no te quedan mas ataques especiales'
+        assert self.__ataques_especiales_restantes__ > 0, 'no te quedan mas ataques especiales'
         assert self.__elementos__[0] == elemento or self.__elementos__[1] == elemento, 'este monstruo no posee el elemento indicado'
         ataque = Ataque_especial(elemento)
         self.__ataques_especiales_restantes__  -= 1
