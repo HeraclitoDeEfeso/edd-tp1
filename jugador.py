@@ -9,3 +9,6 @@ class Jugador():
         self.__monstruo__ = Monstruo(elem_1, elem_2)
         self.__nombre__ = name
         
+    def __str__(self):
+        return str(self.__dict__)
+    
