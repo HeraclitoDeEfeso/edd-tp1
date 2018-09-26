@@ -8,8 +8,10 @@ class Monstruo():
         self.__elementos__ = []
         assert elem_1 != Elemento.NADA or elem_2 != Elemento.NADA, 'los dos elementos no pueden ser nulos'
         assert elem_1 != elem_2,'los elementos deben ser diferentes'
-        self.__elementos__.append(elem_1)
-        self.__elementos__.append(elem_2)
+        if elem_1 != Elemento.NADA:
+            self.__elementos__.append(elem_1)
+        if elem_2 != Elemento.NADA:    
+            self.__elementos__.append(elem_2)
         self.__estado_vital__ = 100
         self.__ataques_especiales_restantes__ = 4
         
