@@ -76,7 +76,7 @@ def __jugar_turno__(batalla):
     mi_monstruo = batalla.__jugador_atacante__.__monstruo__
     menu_jugada = Menu("Batalla en progreso.\nSeleccione una acción:",{"1":"Realizar una jugada", "2":"Guardar Batalla actual", "3":"Salir sin guardar"})
     menu_ataque = Menu("Seleccione el tipo de ataque a realizar:", {"1":"Ataque Normal", "2":"Ataque Especial"})
-    menu_elemento = Menu("Seleccione el elemento del monstruo con que atacar:", {"1":mi_monstruo.__elementos__[0], "2":mi_monstruo.__elementos__[1]})
+    menu_elemento = Menu("Seleccione el elemento del monstruo con que atacar:", {"1":str(mi_monstruo.__elementos__[0]), "2":str(mi_monstruo.__elementos__[1])})
     while not(batalla.termino()):
         opcion_jugada = menu_jugada.mostrar_y_pedir_input()
         if(opcion_jugada == "1"):
@@ -84,17 +84,17 @@ def __jugar_turno__(batalla):
             if(opcion_ataque == "1"):
                 opcion_elemento = menu_elemento.mostrar_y_pedir_input()
                 if(opcion_elemento == "1"):
-                    batalla.jugada(mi_monstruo.generar_ataque(menu_elemento(opcion_elemento)))
+                    batalla.jugada(mi_monstruo.generar_ataque(mi_monstruo.__elementos__[0]))
                 elif(opcion_elemento == "2"):
-                    batalla.jugada(mi_monstruo.generar_ataque(menu_elemento(opcion_elemento)))
+                    batalla.jugada(mi_monstruo.generar_ataque(mi_monstruo.__elementos__[1]))
                 else:
                     input("Selección inválida. Reiniciando turno.")
             elif(opcion_ataque == "2"):
                 opcion_elemento = menu_elemento.mostrar_y_pedir_input()
                 if(opcion_elemento == "1"):
-                    batalla.jugada(mi_monstruo.generar_ataque(menu_elemento(opcion_elemento)))
+                    batalla.jugada(mi_monstruo.generar_ataque_especial(mi_monstruo.__elementos__[0]))
                 elif(opcion_elemento == "2"):
-                    batalla.jugada(mi_monstruo.generar_ataque(menu_elemento(opcion_elemento)))
+                    batalla.jugada(mi_monstruo.generar_ataque_especial(mi_monstruo.__elementos__[1]))
                 else:
                     input("Selección inválida. Reiniciando turno.")
             else:
