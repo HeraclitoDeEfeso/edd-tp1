@@ -15,12 +15,3 @@ class Menu(object):
 			print(opc+" - "+self.opciones[opc])
 
 		return input("\nIngresar el numero de opcion deseado:")
-
-
-
-
-if __name__ == '__main__':
-
-	titulo ="mi titulo"
-	menu123 = Menu(titulo,tupla)
-	print(menu123.mostrar_y_pedir_input())

@@ -35,4 +35,3 @@ class Monstruo():
         if ataque.calcular_danio(self.generar_opciones()) <= self.__estado_vital__ :
             self.__estado_vital__ -= ataque.calcular_danio(self.generar_opciones())
         else: self.__estado_vital__ = 0
-

@@ -41,7 +41,7 @@ def main():
             input("Saliendo de la batalla. \n Hasta luego!")
             return
         else:
-            input("De verdad no podes ingresar un simple numero...?\nPulsa una tecla cualquiera para reintentar")
+            input("No se ingreso ninguna opcion valida. \nPulsa una tecla cualquiera para reintentar")
     __jugar_turno__(batallaEnJuego)
         
 def __cargar_jugador__(indice):
