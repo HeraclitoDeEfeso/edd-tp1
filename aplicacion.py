@@ -45,6 +45,7 @@ def main():
     __jugar_turno__(batallaEnJuego)
         
 def __cargar_jugador__(indice):
+    print("")
     print ("Creando jugador numero %d" % indice)
     return  (input("Ingresa el nombre del jugador 1 y luego presiona [Enter]: "),
             *(__elegir_elemento__(
@@ -78,10 +79,13 @@ def __jugar_turno__(batalla):
     menu_ataque = Menu("Seleccione el tipo de ataque a realizar:", {"1":"Ataque Normal", "2":"Ataque Especial"})
     menu_elemento = Menu("Seleccione el elemento del monstruo con que atacar:", {"1":str(mi_monstruo.__elementos__[0]), "2":str(mi_monstruo.__elementos__[1])})
     while not(batalla.termino()):
+        print("")
         opcion_jugada = menu_jugada.mostrar_y_pedir_input()
         if(opcion_jugada == "1"):
+            print("")
             opcion_ataque = menu_ataque.mostrar_y_pedir_input()
             if(opcion_ataque == "1"):
+                print("")
                 opcion_elemento = menu_elemento.mostrar_y_pedir_input()
                 if(opcion_elemento == "1"):
                     batalla.jugada(mi_monstruo.generar_ataque(mi_monstruo.__elementos__[0]))
@@ -90,6 +94,7 @@ def __jugar_turno__(batalla):
                 else:
                     input("Selección inválida. Reiniciando turno.")
             elif(opcion_ataque == "2"):
+                print("")
                 opcion_elemento = menu_elemento.mostrar_y_pedir_input()
                 if(opcion_elemento == "1"):
                     batalla.jugada(mi_monstruo.generar_ataque_especial(mi_monstruo.__elementos__[0]))
