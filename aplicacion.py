@@ -77,19 +77,26 @@ def __jugar_turno__(batalla):
     menu_jugada = Menu("Batalla en progreso.\nSeleccione una acción:",{"1":"Realizar una jugada", "2":"Guardar Batalla actual", "3":"Salir sin guardar"})
     menu_ataque = Menu("Seleccione el tipo de ataque a realizar:", {"1":"Ataque Normal", "2":"Ataque Especial"})
     while not batalla.termino():
+        mi_monstruo = batalla.__jugador_atacante__.__monstruo__
         print("")
         opcion_jugada = menu_jugada.mostrar_y_pedir_input()
         if opcion_jugada == "1":
-            print("")
-            opcion_ataque = menu_ataque.mostrar_y_pedir_input()
-            if opcion_ataque == "1":
+            if (mi_monstruo.__ataques_especiales_restantes__ <= 0):
+                print("")
+                print("Ya no puede hacer Ataques Especiales. Se realiza un Ataque Normal")
                 mi_metodo = batalla.__jugador_atacante__.__monstruo__.generar_ataque
-                __jugar_ataque__(batalla, mi_metodo)
-            elif opcion_ataque == "2":
-                mi_metodo = batalla.__jugador_atacante__.__monstruo__.generar_ataque_especial
-                __jugar_ataque__(batalla, mi_metodo)
+                __jugar_ataque__(batalla, mi_monstruo, mi_metodo)
             else:
-                input("Selección inválida. Reiniciando turno.")
+                print("")
+                opcion_ataque = menu_ataque.mostrar_y_pedir_input()
+                if opcion_ataque == "1":
+                    mi_metodo = batalla.__jugador_atacante__.__monstruo__.generar_ataque
+                    __jugar_ataque__(batalla, mi_monstruo, mi_metodo)
+                elif opcion_ataque == "2":
+                    mi_metodo = batalla.__jugador_atacante__.__monstruo__.generar_ataque_especial
+                    __jugar_ataque__(batalla, mi_monstruo, mi_metodo)
+                else:
+                    input("Selección inválida. Reiniciando turno.")
         elif opcion_jugada == "2":
             __guardar_partida__(batalla)
             return
@@ -101,23 +108,28 @@ def __jugar_turno__(batalla):
     if batalla.termino():
         print("\nLa batalla terminó. El ganador es %s" % batalla.ganador().__nombre__)
 
-def __jugar_ataque__(batalla, metodo):
+def __jugar_ataque__(batalla, monstruo, metodo):
     opciones = {}
-    mi_monstruo = batalla.__jugador_atacante__.__monstruo__
-    elementos_monstruo = mi_monstruo.generar_opciones()
-    for i in range(len(elementos_monstruo)):
-        opciones[str(i+1)] = str(elementos_monstruo[i])
-    menu_elemento = Menu("Seleccione el elemento del monstruo con que atacar:", opciones)
-    print("")
-    opcion_elemento = menu_elemento.mostrar_y_pedir_input()
-    if opcion_elemento == "1":
-        batalla.jugada(metodo(mi_monstruo.__elementos__[0]))
-        __resultado_parcial__(batalla)
-    elif opcion_elemento == "2":
-        batalla.jugada(metodo(mi_monstruo.__elementos__[1]))
+    elementos_monstruo = monstruo.generar_opciones()
+    if (len(elementos_monstruo) == 1):
+        print("")
+        print("El monstruo solo posee 1 elemento. Se realizará el ataque con el elemento " + str(elementos_monstruo[0]))
+        batalla.jugada(metodo(elementos_monstruo[0]))
         __resultado_parcial__(batalla)
     else:
-        input("Selección inválida. Reiniciando turno.")
+        for i in range(len(elementos_monstruo)):
+            opciones[str(i+1)] = str(elementos_monstruo[i])
+        menu_elemento = Menu("Seleccione el elemento del monstruo con que atacar:", opciones)
+        print("")
+        opcion_elemento = menu_elemento.mostrar_y_pedir_input()
+        if opcion_elemento == "1":
+            batalla.jugada(metodo(elementos_monstruo[0]))
+            __resultado_parcial__(batalla)
+        elif opcion_elemento == "2":
+            batalla.jugada(metodo(elementos_monstruo[1]))
+            __resultado_parcial__(batalla)
+        else:
+            input("Selección inválida. Reiniciando turno.")
 
 def __resultado_parcial__(batalla):
     print("")
