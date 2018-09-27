@@ -102,8 +102,12 @@ def __jugar_turno__(batalla):
         print("\nLa batalla terminó. El ganador es %s" % batalla.ganador().__nombre__)
 
 def __jugar_ataque__(batalla, metodo):
+    opciones = {}
     mi_monstruo = batalla.__jugador_atacante__.__monstruo__
-    menu_elemento = Menu("Seleccione el elemento del monstruo con que atacar:", {"1":str(mi_monstruo.__elementos__[0]), "2":str(mi_monstruo.__elementos__[1])})
+    elementos_monstruo = mi_monstruo.generar_opciones()
+    for i in range(len(elementos_monstruo)):
+        opciones[str(i+1)] = str(elementos_monstruo[i])
+    menu_elemento = Menu("Seleccione el elemento del monstruo con que atacar:", opciones)
     print("")
     opcion_elemento = menu_elemento.mostrar_y_pedir_input()
     if opcion_elemento == "1":
