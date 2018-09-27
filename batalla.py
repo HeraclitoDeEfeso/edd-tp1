@@ -32,11 +32,9 @@ class Batalla(object):
         return ganador
 
     def jugada(self, ataque):
-        if (ataque.__elemento__ == None):
-            raise ValueError("Todos los ataques deben tener un elemento")
-            raise Exception("Ataque no elemental")
-        elif (not self.termino()):
+        if (not self.termino()):
             self.__jugador_defensor__.__monstruo__.recibir_ataque(ataque)
             auxiliar = self.__jugador_atacante__
             self.__jugador_atacante__ = self.__jugador_defensor__
             self.__jugador_defensor__ = auxiliar
+
