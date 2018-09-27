@@ -10,7 +10,6 @@ class Batalla(object):
         self.__jugador_defensor__ = Jugador(nombreSegundoJugador, primerElementoSegundoJugador, segundoElementoSegundoJugador)
         if (nombrePrimerJugador == nombreSegundoJugador):
             raise ValueError("Nombres de monstruo idénticos")
-            raise Exception("Nombres idénticos")
 
     def __str__(self):
         return str(self.__dict__)
