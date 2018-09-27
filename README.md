@@ -41,3 +41,11 @@ Detalles de implementación en la Jupyter Notebook del [módulo `ataque`](ataque
 ### Clase `Monstruo`
 
 Detalles de implementación en la Jupyter Notebook del [módulo `monstruo`](monstruo.ipynb)
+
+### Clase `Jugador`
+
+Detalles de implementación en la Jupyter Notebook del [módulo `jugador`](jugador.ipynb)
+
+### Clase `Batalla`
+
+Detalles de implementación en la Jupyter Notebook del [módulo `batalla`](batalla.ipynb)
