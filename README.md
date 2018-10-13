@@ -53,16 +53,24 @@ de python permitiendo resolver correctamente los `import` relativos.
 
 ### Diagrama de clases
 
-![Diagrama de clases](/batalla.png)
+![Diagrama de clases](doc/batalla.png)
 
 ### Clase `Elemento`
 
-Detalles de implementación en la Jupyter Notebook del [módulo `elemento`](elemento.ipynb)
+Detalles de implementación en la Jupyter Notebook del [módulo `elemento`](doc/elemento.ipynb)
 
 ### Clases `Ataque` y `Ataque_especial`
 
-Detalles de implementación en la Jupyter Notebook del [módulo `ataque`](ataque.ipynb)
+Detalles de implementación en la Jupyter Notebook del [módulo `ataque`](doc/ataque.ipynb)
 
 ### Clase `Monstruo`
 
-Detalles de implementación en la Jupyter Notebook del [módulo `monstruo`](monstruo.ipynb)
+Detalles de implementación en la Jupyter Notebook del [módulo `monstruo`](doc/monstruo.ipynb)
+
+### Clase `Batalla`
+
+Detalles de implementación en la Jupyter Notebook del [módulo `batalla`](doc/batalla.ipynb)
+
+### Clase `Jugador`
+
+Detalles de implementación en la Jupyter Notebook del [módulo `jugador`](doc/jugador.ipynb)
