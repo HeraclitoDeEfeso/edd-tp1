@@ -24,6 +24,20 @@ guardar una partida en disco y luego recuperarla y continuar.
 
 Consultar el resto en https://sites.google.com/site/estructurasdedatosuntref/trabajos-practicos
 
+## Instrucciones
+
+### Ejecucion
+
+El proyecto aún no es instalable automáticamente. Después de clonar el repositorio 
+y hubicarse en el directorio raiz del proyecto, ejecutar en la línea de comandos
+(python debe estar instalado):
+
+    python -m batalla.aplicacion
+
+Este comando ejecuta el módulo aplicación pero manteniendo en el `path` de python 
+el direcitorio raiz del proyecto lo que permite resolver correctamente las direcciones
+relativas de los `import`
+
 ## Resolución
 
 ### Diagrama de clases
