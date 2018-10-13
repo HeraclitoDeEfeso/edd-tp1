@@ -3,8 +3,8 @@
 Test unitarios para el módulo batalla.
 """
 import unittest
-from batalla import Batalla
-from elemento import Elemento
+from batalla.batalla import Batalla
+from batalla.elemento import Elemento
 
 class TestBatalla(unittest.TestCase):
     

@@ -2,9 +2,9 @@
 """Test unitarios para la clase monstruo."""
 
 import unittest
-from monstruo import Monstruo
-from ataque import Ataque, Ataque_especial
-from elemento import Elemento
+from batalla.monstruo import Monstruo
+from batalla.ataque import Ataque, Ataque_especial
+from batalla.elemento import Elemento
 
 class TestMonstruo(unittest.TestCase):
 

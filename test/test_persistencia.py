@@ -4,11 +4,11 @@ Módulo que testea la persistencia para nuestras clases
 """
 import unittest
 import pickle
-import test_batalla
-from batalla import Batalla
-from elemento import Elemento
+from test.test_batalla import TestBatalla, TestBatallaTerminada
+from batalla.batalla import Batalla
+from batalla.elemento import Elemento
 
-class TestPersistenciaIniciada(test_batalla.TestBatalla):
+class TestPersistenciaIniciada(TestBatalla):
 
     @classmethod
     def setUpClass(cls):
@@ -19,7 +19,7 @@ class TestPersistenciaIniciada(test_batalla.TestBatalla):
         with open("batalla-store", "rb") as archivo:
             self.batalla = pickle.load(archivo)
 
-class TestPersistenciaTerminada(test_batalla.TestBatallaTerminada):
+class TestPersistenciaTerminada(TestBatallaTerminada):
 
     @classmethod
     def setUpClass(cls):

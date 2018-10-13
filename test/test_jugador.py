@@ -2,9 +2,9 @@
 """Test unitarios para la clase jugador."""
 
 import unittest
-from jugador import Jugador
-from monstruo import Monstruo
-from elemento import Elemento
+from batalla.jugador import Jugador
+from batalla.monstruo import Monstruo
+from batalla.elemento import Elemento
 
 class TestJugador(unittest.TestCase):
 
