@@ -1,5 +1,5 @@
-from elemento import Elemento
-from ataque import Ataque, Ataque_especial
+from batalla.elemento import Elemento
+from batalla.ataque import Ataque, Ataque_especial
 """faltan los imports de ataque"""
 
 class Monstruo():

@@ -1,5 +1,5 @@
-from monstruo import Monstruo
-from elemento import Elemento
+from batalla.monstruo import Monstruo
+from batalla.elemento import Elemento
 class Jugador():
 
     def __init__(self, name, elem_1, elem_2):

@@ -1,4 +1,4 @@
-from elemento import Elemento
+from batalla.elemento import Elemento
 
 class Ataque(object):
     def __init__(self, elemento):

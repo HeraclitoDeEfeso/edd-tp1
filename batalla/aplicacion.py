@@ -1,8 +1,8 @@
-from menu import Menu
-from batalla import Batalla
-from elemento import Elemento
-from monstruo import Monstruo
-from jugador import Jugador
+from batalla.menu import Menu
+from batalla.batalla import Batalla
+from batalla.elemento import Elemento
+from batalla.monstruo import Monstruo
+from batalla.jugador import Jugador
 import os
 import pickle
 

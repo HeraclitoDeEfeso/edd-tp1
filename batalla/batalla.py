@@ -1,6 +1,6 @@
-from jugador import Jugador
-from elemento import Elemento
-from ataque import Ataque
+from batalla.jugador import Jugador
+from batalla.elemento import Elemento
+from batalla.ataque import Ataque
 
 class Batalla(object):
 
