@@ -38,6 +38,17 @@ Este comando ejecuta el módulo aplicación pero manteniendo en el `path` de pyt
 el direcitorio raiz del proyecto lo que permite resolver correctamente las direcciones
 relativas de los `import`
 
+### Test
+
+Para correr los test unitarios, posicionarse en el directorio raiz del proyecto 
+ya clonado y ejecutar en la línea de comandos:
+
+   python -m unittest discover
+   
+Este comando correrá todos los modulos que empiecen con "test" en el paquete con
+nombre "test" mientras que mantendrá el directorio raiz del proyecto en el `path`
+de python permitiendo resolver correctamente los `import` relativos.
+
 ## Resolución
 
 ### Diagrama de clases
